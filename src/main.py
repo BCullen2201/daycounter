@@ -20,31 +20,26 @@ def setStartDate():
     saveMonth = input("Month: ")
     saveDay = input("Day: ")
 
-    with open('year.txt', 'w') as storeYear:
+    with open('../date/year.txt', 'w') as storeYear:
         storeYear.write(saveYear)
 
-    with open('month.txt', 'w') as storeMonth:
+    with open('../date/month.txt', 'w') as storeMonth:
         storeMonth.write(saveMonth)
 
-    with open('day.txt', 'w') as storeDay:
+    with open('../date/day.txt', 'w') as storeDay:
         storeDay.write(saveDay)
 
 def showDifference():
     system("clear")
-    getYear = open('year.txt', 'r')
-    getMonth = open('month.txt', 'r')
-    getDay = open('day.txt', 'r')
+    getYear = open('../date/year.txt', 'r')
+    getMonth = open('../date/month.txt', 'r')
+    getDay = open('../date/day.txt', 'r')
 
     startDate = date(int(getYear.read()), int(getMonth.read()), int(getDay.read()))
     today = date(currentYear, currentMonth, currentDay)
     delta = today - startDate
     print(f"Days passed since {startDate}: {delta.days}")
     input("Press ENTER to continue")
-
-    # startDate = date(1964, 8, 14)
-    # today = date(year, month, day)
-    # delta = today - startDate
-    # print(f"Days passed since {startDate}: {delta.days}")
 
 def main():
     while True:
