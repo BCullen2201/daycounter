@@ -10,31 +10,41 @@ welcomeMessage = """Day Counter
 """
 
 today = date.today()
-month = int(today.strftime("%m"))
-day = int(today.strftime("%d"))
-year = int(today.strftime("%Y"))
+currentMonth = int(today.strftime("%m"))
+currentDay = int(today.strftime("%d"))
+currentYear = int(today.strftime("%Y"))
 
 def setStartDate():
     system("clear")
-    print("Enter date correctly, without quotes, in YYYY MM DD E.g. '2005, 11, 05'")
-    startDate = input(">")
+    saveYear = input("Year: ")
+    saveMonth = input("Month: ")
+    saveDay = input("Day: ")
 
-    with open('date.txt', 'w') as saveDate:
-        saveDate.write(startDate)
+    with open('year.txt', 'w') as storeYear:
+        storeYear.write(saveYear)
+
+    with open('month.txt', 'w') as storeMonth:
+        storeMonth.write(saveMonth)
+
+    with open('day.txt', 'w') as storeDay:
+        storeDay.write(saveDay)
 
 def showDifference():
     system("clear")
-    try:
-        getStartDate = open('date.txt', 'r')
-    except Exception:
-        print("No start date, please create one!")
-        return
-    startDate = getStartDate.read()
-    
-    x = date(int(startDate))
-    today = date(year, month, day)
-    delta = today - x
+    getYear = open('year.txt', 'r')
+    getMonth = open('month.txt', 'r')
+    getDay = open('day.txt', 'r')
+
+    startDate = date(int(getYear.read()), int(getMonth.read()), int(getDay.read()))
+    today = date(currentYear, currentMonth, currentDay)
+    delta = today - startDate
     print(f"Days passed since {startDate}: {delta.days}")
+    input("Press ENTER to continue")
+
+    # startDate = date(1964, 8, 14)
+    # today = date(year, month, day)
+    # delta = today - startDate
+    # print(f"Days passed since {startDate}: {delta.days}")
 
 def main():
     while True:
