@@ -2,11 +2,12 @@ from os import system
 from sys import exit
 from datetime import date
 
-welcomeMessage = """Day Counter
-
+mainMenu = """Day Counter
+=======================
 1 - Set start date
 2 - Show days passed
 3 - Exit
+=======================
 """
 
 today = date.today()
@@ -31,9 +32,14 @@ def setStartDate():
 
 def showDifference():
     system("clear")
-    getYear = open('../date/year.txt', 'r')
-    getMonth = open('../date/month.txt', 'r')
-    getDay = open('../date/day.txt', 'r')
+    try:
+        getYear = open('../date/year.txt', 'r')
+        getMonth = open('../date/month.txt', 'r')
+        getDay = open('../date/day.txt', 'r')
+    except Exception:
+        print("Please enter a start date!")
+        input("Press ENTER to continue")
+        return
 
     startDate = date(int(getYear.read()), int(getMonth.read()), int(getDay.read()))
     today = date(currentYear, currentMonth, currentDay)
@@ -44,7 +50,7 @@ def showDifference():
 def main():
     while True:
         system("clear")
-        print(welcomeMessage)
+        print(mainMenu)
         userChoice = input(">")
         if userChoice == "1":
             setStartDate()
