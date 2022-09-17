@@ -21,21 +21,21 @@ def setStartDate():
     saveMonth = input("Month: ")
     saveDay = input("Day: ")
 
-    with open('../date/year.txt', 'w') as storeYear:
+    with open('year.txt', 'w') as storeYear:
         storeYear.write(saveYear)
 
-    with open('../date/month.txt', 'w') as storeMonth:
+    with open('month.txt', 'w') as storeMonth:
         storeMonth.write(saveMonth)
 
-    with open('../date/day.txt', 'w') as storeDay:
+    with open('day.txt', 'w') as storeDay:
         storeDay.write(saveDay)
 
 def showDifference():
     system("clear")
     try:
-        getYear = open('../date/year.txt', 'r')
-        getMonth = open('../date/month.txt', 'r')
-        getDay = open('../date/day.txt', 'r')
+        getYear = open('year.txt', 'r')
+        getMonth = open('month.txt', 'r')
+        getDay = open('day.txt', 'r')
     except Exception:
         print("Please enter a start date!")
         input("Press ENTER to continue")
