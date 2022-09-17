@@ -37,26 +37,27 @@ def showDifference():
     print(f"Days passed since {startDate}: {delta.days}")
 
 def main():
-    system("clear")
-    print(welcomeMessage)
-    userChoice = input(">")
-    if userChoice == "1":
-        setStartDate()
-    elif userChoice == "2":
-        showDifference()
-    elif userChoice == "3":
-        userIsSure = input("Are you sure you want to quit? Y or N: ")
-        if userIsSure == "Y" or userIsSure == "y":
-            exit(0)
-        elif userIsSure == "N" or userIsSure == "n":
-            return
-        else:
-            return
-    
-    # startDate = date(1964, 8, 14)
-    # today = date(year, month, day)
-    # delta = today - startDate
-    # print(f"Days passed since {startDate}: {delta.days}")
+    while True:
+        system("clear")
+        print(welcomeMessage)
+        userChoice = input(">")
+        if userChoice == "1":
+            setStartDate()
+        elif userChoice == "2":
+            showDifference()
+        elif userChoice == "3":
+            userIsSure = input("Are you sure you want to quit? Y or N: ")
+            if userIsSure == "Y" or userIsSure == "y":
+                exit(0)
+            elif userIsSure == "N" or userIsSure == "n":
+                return
+            else:
+                return
+        
+        # startDate = date(1964, 8, 14)
+        # today = date(year, month, day)
+        # delta = today - startDate
+        # print(f"Days passed since {startDate}: {delta.days}")
 
 if __name__ == "__main__":
     main()
