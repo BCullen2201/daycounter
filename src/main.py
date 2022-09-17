@@ -58,11 +58,6 @@ def main():
                 return
             else:
                 return
-        
-        # startDate = date(1964, 8, 14)
-        # today = date(year, month, day)
-        # delta = today - startDate
-        # print(f"Days passed since {startDate}: {delta.days}")
 
 if __name__ == "__main__":
     main()
