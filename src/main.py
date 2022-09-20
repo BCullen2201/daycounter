@@ -2,6 +2,7 @@ from os import system
 from sys import exit
 from datetime import date
 from os.path import exists
+from getpass import getuser
 
 mainMenu = """Day Counter
 =======================
@@ -9,6 +10,8 @@ mainMenu = """Day Counter
 2 - Exit
 =======================
 """
+
+userName = getuser()
 
 today = date.today()
 currentMonth = int(today.strftime("%m"))
@@ -21,20 +24,20 @@ def setStartDate():
     saveMonth = input("Month: ")
     saveDay = input("Day: ")
 
-    with open('year.txt', 'w') as storeYear:
+    with open(f'/home/{userName}/.day-counter/year.txt', 'w') as storeYear:
         storeYear.write(saveYear)
 
-    with open('month.txt', 'w') as storeMonth:
+    with open(f'/home/{userName}/.day-counter/month.txt', 'w') as storeMonth:
         storeMonth.write(saveMonth)
 
-    with open('day.txt', 'w') as storeDay:
+    with open(f'/home/{userName}/.day-counter/day.txt', 'w') as storeDay:
         storeDay.write(saveDay)
 
 def showDifference():
     try:
-        getYear = open('year.txt', 'r')
-        getMonth = open('month.txt', 'r')
-        getDay = open('day.txt', 'r')
+        getYear = open(f'/home/{userName}/.day-counter/year.txt', 'r')
+        getMonth = open(f'/home/{userName}/.day-counter/month.txt', 'r')
+        getDay = open(f'/home/{userName}/.day-counter/day.txt', 'r')
     except Exception:
         print("Please enter a start date!")
         input("Press ENTER to continue")
@@ -45,7 +48,7 @@ def showDifference():
     delta = today - startDate
     print(f"Days passed since {startDate}: {delta.days}\n")
 
-if exists('year.txt'):
+if exists(f'/home/{userName}/.day-counter/year.txt'):
     pass
 else:
     setStartDate()
