@@ -40,18 +40,12 @@ def showDifference():
         getDay = open(f'/home/{userName}/.day-counter/day.txt', 'r')
     except Exception:
         print("Please enter a start date!")
-        input("Press ENTER to continue")
         return
 
     startDate = date(int(getYear.read()), int(getMonth.read()), int(getDay.read()))
     today = date(currentYear, currentMonth, currentDay)
     delta = today - startDate
     print(f"Days passed since {startDate}: {delta.days}\n")
-
-if exists(f'/home/{userName}/.day-counter/year.txt'):
-    pass
-else:
-    setStartDate()
 
 def main():
     while True:
