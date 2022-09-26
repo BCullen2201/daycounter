@@ -48,22 +48,25 @@ def showDifference():
     print(f"Days passed since {startDate}: {delta.days}\n")
 
 def main():
-    while True:
+    system("clear")
+    print(f"{mainMenu}")
+    showDifference()
+    userChoice = input(">")
+    if userChoice == "1":
+        setStartDate()
+    elif userChoice == "2":
         system("clear")
-        print(f"{mainMenu}")
-        showDifference()
-        userChoice = input(">")
-        if userChoice == "1":
-            setStartDate()
-        elif userChoice == "2":
-            system("clear")
-            userIsSure = input("Are you sure you want to quit? Y or N: ")
-            if userIsSure == "Y" or userIsSure == "y":
-                exit(0)
-            elif userIsSure == "N" or userIsSure == "n":
-                return
-            else:
-                return
+        userIsSure = input("Are you sure you want to quit? Y or N: ")
+        if userIsSure == "Y" or userIsSure == "y":
+            exit(0)
+        elif userIsSure == "N" or userIsSure == "n":
+            return
+        else:
+            return
+    else:
+        input("Not a valid input! Press ENTER to continue")
+        return
 
 if __name__ == "__main__":
-    main()
+    while True:
+        main()
