@@ -62,13 +62,8 @@ def main():
             userIsSure = input("Are you sure you want to quit? Y or N: ")
             if userIsSure == "Y" or userIsSure == "y":
                 exit(0)
-            elif userIsSure == "N" or userIsSure == "n":
-                return
-            else:
-                return
         else:
             input("Not a valid input! Press ENTER to continue")
-            return
 
 if __name__ == "__main__":
     main()
