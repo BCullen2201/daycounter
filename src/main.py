@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from os import system
 from sys import exit
 from datetime import date
