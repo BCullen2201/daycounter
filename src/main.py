@@ -28,6 +28,7 @@ def setStartDate():
     saveMonth = input("Month: ")
     saveDay = input("Day: ")
     
+    # I know theres probably a better way to check for this but whatever it works
     try:
         if int(saveDay) < 1 or int(saveDay) > 31 or int(saveMonth) < 1 or int(saveMonth) > 12 or int(saveYear) < 1 or int(saveYear) > 9999:
             continuePrompt("Impossible date. Press ENTER to continue...")
