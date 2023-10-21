@@ -3,6 +3,7 @@
 from os import system
 from sys import exit
 from datetime import date
+from os.path import exists
 from getpass import getuser
 
 mainMenu = """Day Counter
@@ -43,9 +44,7 @@ def setStartDate():
         storeDate.write(saveDay + '\n')
 
 def showDifference():
-    try:
-        getDate = open(f"/home/{userName}/.day-counter/date.txt", "r")
-    except Exception:
+    if exists(f"/home/{userName}/.day-counter/date.txt") == False:
         print("Please enter a start date!")
         return
 
