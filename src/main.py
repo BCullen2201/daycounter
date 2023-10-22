@@ -20,8 +20,22 @@ currentMonth = int(today.strftime("%m"))
 currentDay = int(today.strftime("%d"))
 currentYear = int(today.strftime("%Y"))
 
+startDateFromDisk = None
+
 def continuePrompt(continuePromptMsg):
     input(f"\n{continuePromptMsg}")
+
+def getDateFromDisk():
+    if exists(f"/home/{userName}/.day-counter/date.txt") == False:
+        return
+    
+    with open(f"/home/{userName}/.day-counter/date.txt", "r") as getDate:
+        year = getDate.readline().rstrip()
+        month = getDate.readline().rstrip()
+        day = getDate.readline().rstrip()
+
+    global startDateFromDisk
+    startDateFromDisk = date(int(year), int(month), int(day))
 
 def setStartDate():
     system("clear")
@@ -42,24 +56,23 @@ def setStartDate():
         storeDate.write(saveYear + '\n')
         storeDate.write(saveMonth + '\n')
         storeDate.write(saveDay + '\n')
+    
+    global startDateFromDisk
+    startDateFromDisk = date(int(saveYear), int(saveMonth), int(saveDay))
 
 def showDifference():
     if exists(f"/home/{userName}/.day-counter/date.txt") == False:
         print("Please enter a start date!")
         return
 
-    year = getDate.readline().rstrip()
-    month = getDate.readline().rstrip()
-    day = getDate.readline().rstrip()
-
-    startDate = date(int(year), int(month), int(day))
+    global startDateFromDisk
+    startDate = startDateFromDisk
     today = date(currentYear, currentMonth, currentDay)
     delta = today - startDate
     print(f"Days passed since {startDate}: {delta.days}\n")
 
-    getDate.close()
-
 def main():
+    getDateFromDisk()
     while True:
         system("clear")
         print(f"{mainMenu}")
