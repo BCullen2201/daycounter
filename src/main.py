@@ -38,7 +38,7 @@ def getDateFromDisk():
 def setStartDate():
     system("clear")
 
-    print("Enter date (Example: 2001-6-22):")
+    print("Enter date using only numbers:")
     saveYear = input("Year: ")
     saveMonth = input("Month: ")
     saveDay = input("Day: ")
@@ -49,7 +49,7 @@ def setStartDate():
             continuePrompt("Impossible date. Press ENTER to continue...")
             return
     except Exception:
-        continuePrompt("Dates must be stored as numbers, not words! (Example: 2023-6-22)\n\nPress ENTER to continue...")
+        continuePrompt("Dates must be stored as numbers with no letters, symbols, or spaces!\n\nPress ENTER to continue...")
         return
 
     with open(f"/home/{userName}/.day-counter/date.txt", "w") as storeDate:
