@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from os import system
+from os import makedirs
 from sys import exit
 from datetime import date
 from os.path import exists
@@ -70,6 +71,7 @@ def main():
     if exists(f"/home/{userName}/.day-counter/date.txt") == True:
         getDateFromDisk()
     else:
+        makedirs(f"/home/{userName}/.day-counter")
         setStartDate()
     while True:
         system("clear")
