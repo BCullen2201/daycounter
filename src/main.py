@@ -72,7 +72,8 @@ def main():
         getDateFromDisk()
     else:
         makedirs(f"/home/{userName}/.day-counter")
-        setStartDate()
+        while startDateFromDisk == None:
+            setStartDate()
     while True:
         system("clear")
         print(f"{mainMenu}")
