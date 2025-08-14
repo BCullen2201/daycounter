@@ -7,3 +7,5 @@ I wanted an app that tells you how many days have gone by since you hit the star
 ---
 
 This project is kind of old now, and wasn't intended for public use. It's not written the best, but it works and does what I want it to do.
+
+Tested with Python 3.12.3
