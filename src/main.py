@@ -27,7 +27,7 @@ def continuePrompt(continuePromptMsg):
     input(f"\n{continuePromptMsg}")
 
 def getDateFromDisk():
-    with open(f"/home/{userName}/.day-counter/date.txt", "r") as getDate:
+    with open(f"/home/{userName}/.local/share/daycounter/date", "r") as getDate:
         year = getDate.readline().rstrip()
         month = getDate.readline().rstrip()
         day = getDate.readline().rstrip()
@@ -52,7 +52,7 @@ def setStartDate():
         continuePrompt("Dates must be stored as numbers with no letters, symbols, or spaces!\n\nPress ENTER to continue...")
         return
 
-    with open(f"/home/{userName}/.day-counter/date.txt", "w") as storeDate:
+    with open(f"/home/{userName}/.local/share/daycounter/date", "w") as storeDate:
         storeDate.write(saveYear + '\n')
         storeDate.write(saveMonth + '\n')
         storeDate.write(saveDay + '\n')
@@ -68,10 +68,10 @@ def showDifference():
     print(f"Days passed since {startDate}: {delta.days}\n")
 
 def main():
-    if exists(f"/home/{userName}/.day-counter/date.txt") == True:
+    if exists(f"/home/{userName}/.local/share/daycounter/date") == True:
         getDateFromDisk()
     else:
-        makedirs(f"/home/{userName}/.day-counter")
+        makedirs(f"/home/{userName}/.local/share/daycounter")
         while startDateFromDisk == None:
             setStartDate()
     while True:
