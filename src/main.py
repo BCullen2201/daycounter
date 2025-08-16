@@ -76,7 +76,7 @@ def main():
             setStartDate()
     while True:
         system("clear")
-        print(f"{mainMenu}")
+        print(mainMenu)
         showDifference()
         userChoice = input(">")
         if userChoice == "1":
